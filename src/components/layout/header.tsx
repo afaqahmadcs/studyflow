@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Search, Bell, Plus, ChevronDown, Menu } from "lucide-react";
 import { useNav } from "@/context/nav-context";
 import { STUDENT_PROFILE } from "@/data/student-data";
@@ -94,21 +95,25 @@ export function Header({
           <span className="hidden xs:inline">Quick Action</span>
         </button>
 
-        {/* Profile Avatar */}
-        <div className="flex items-center gap-1 pl-1 cursor-pointer group">
+        {/* Profile Avatar with Link to Settings */}
+        <Link
+          href="/settings"
+          title="Account & System Settings"
+          className="flex items-center gap-1 pl-1 cursor-pointer group"
+        >
           <div className="relative w-8 h-8 flex-shrink-0">
             <Image
               src={STUDENT_PROFILE.avatar}
               alt="Student Profile"
               width={32}
               height={32}
-              className="w-8 h-8 rounded-full object-cover border border-white/[0.1]"
+              className="w-8 h-8 rounded-full object-cover border border-white/[0.1] group-hover:border-primary/50 transition-colors"
               priority
             />
             <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary border-2 border-surface-container-lowest" />
           </div>
           <ChevronDown className="w-4 h-4 text-on-surface-variant group-hover:text-on-surface transition-colors hidden sm:block" />
-        </div>
+        </Link>
       </div>
     </header>
   );

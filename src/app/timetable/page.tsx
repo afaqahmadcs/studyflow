@@ -15,11 +15,19 @@ import { useToast } from "@/components/ui/toast";
 import { SearchPaletteModal } from "@/components/modals/search-palette-modal";
 import { NotificationsPopover } from "@/components/modals/notifications-popover";
 import { QuickActionModal, QuickActionType } from "@/components/modals/quick-action-modal";
+import { getTimetable, saveTimetable } from "@/lib/storage";
 
 const DAYS_LIST: DayOfWeek[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
 export default function TimetablePage() {
-  const [classes, setClasses] = useState<ClassItem[]>(INITIAL_CLASSES);
+  const [classes, setClasses] = useState<ClassItem[]>(() => {
+    return getTimetable();
+  });
+
+  // Sync to storage
+  useEffect(() => {
+    saveTimetable(classes);
+  }, [classes]);
   const [viewMode, setViewMode] = useState<TimetableViewMode>("week");
   const [currentDayIndex, setCurrentDayIndex] = useState(0); // 0 = Monday
   const [selectedSubject, setSelectedSubject] = useState("ALL");

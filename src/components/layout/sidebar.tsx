@@ -56,6 +56,7 @@ const NAV_ITEMS: NavItemConfig[] = [
   { key: "goals", label: "Goals", href: "/goals", icon: Flag },
   { key: "notes", label: "Notes", href: "/notes", icon: FileEdit },
   { key: "analytics", label: "Analytics", href: "/analytics", icon: TrendingUp },
+  { key: "settings", label: "Settings", href: "/settings", icon: Settings },
 ];
 
 export function Sidebar({ className }: { className?: string }) {
@@ -174,12 +175,12 @@ export function Sidebar({ className }: { className?: string }) {
 
         <div className="pt-space-xs flex items-center justify-between">
           <Link
-            href="/#settings"
+            href="/settings"
             onClick={() => setActiveNav("settings")}
             className={cn(
               "flex items-center gap-space-xs px-2 py-1.5 rounded transition-all font-label-md text-label-md",
-              activeNav === "settings" && pathname === "/"
-                ? "bg-primary-container text-on-primary font-semibold"
+              pathname === "/settings"
+                ? "bg-primary-container text-on-primary font-semibold shadow-sm"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container"
             )}
           >

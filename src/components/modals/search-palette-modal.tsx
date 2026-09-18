@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight, Flag, FileEdit, TrendingUp } from "lucide-react";
+import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight, Flag, FileEdit, TrendingUp, Settings } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 import { useNav, NavItemKey } from "@/context/nav-context";
 import { useToast } from "@/components/ui/toast";
@@ -146,6 +146,18 @@ export function SearchPaletteModal({
         action: () => {
           setActiveNav("analytics");
           router.push("/analytics");
+          onClose();
+        },
+      },
+      {
+        id: "nav-settings",
+        category: "Navigation",
+        title: "Settings & System Configuration",
+        subtitle: "Profile identity, themes, notifications, and data management",
+        icon: Settings,
+        action: () => {
+          setActiveNav("settings");
+          router.push("/settings");
           onClose();
         },
       },
