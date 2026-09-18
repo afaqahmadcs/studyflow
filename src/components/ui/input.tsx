@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   leadingIcon?: React.ReactNode;
+  icon?: React.ComponentType<{ className?: string }>;
   trailingShortcut?: string;
   wrapperClassName?: string;
 }
@@ -14,17 +15,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       className,
       wrapperClassName,
       leadingIcon,
+      icon: Icon,
       trailingShortcut,
       type = "text",
       ...props
     },
     ref
   ) => {
+    const activeIcon = leadingIcon || (Icon ? <Icon className="w-4 h-4" /> : null);
+
     return (
       <div className={cn("relative flex items-center w-full", wrapperClassName)}>
-        {leadingIcon && (
+        {activeIcon && (
           <div className="absolute left-3 text-outline pointer-events-none flex items-center justify-center">
-            {leadingIcon}
+            {activeIcon}
           </div>
         )}
         <input

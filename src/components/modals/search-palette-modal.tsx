@@ -78,6 +78,30 @@ export function SearchPaletteModal({
         },
       },
       {
+        id: "nav-exams",
+        category: "Navigation",
+        title: "Exams & Academic Evaluations",
+        subtitle: "Upcoming exams, live countdowns & syllabus mastery",
+        icon: Calendar,
+        action: () => {
+          setActiveNav("exams");
+          router.push("/exams");
+          onClose();
+        },
+      },
+      {
+        id: "nav-attendance",
+        category: "Navigation",
+        title: "Attendance & Compliance Telemetry",
+        subtitle: "Course check-ins, safe miss buffer & audit trail",
+        icon: CheckSquare,
+        action: () => {
+          setActiveNav("attendance");
+          router.push("/attendance");
+          onClose();
+        },
+      },
+      {
         id: "action-new-assignment",
         category: "Actions",
         title: "Create New Assignment",
