@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary":"#003640","inverse-on-surface":"#2c3039","primary-fixed":"#e1e0ff","on-primary-fixed-variant":"#2f2ebe","secondary-fixed":"#acedff","tertiary-fixed-dim":"#4edea3","error-container":"#93000a","surface":"#0f131c","on-error":"#690005","inverse-primary":"#494bd6","surface-tint":"#c0c1ff","error":"#ffb4ab","on-surface-variant":"#c7c4d7","on-primary":"#1000a9","secondary-container":"#03b5d3","on-primary-container":"#0d0096","surface-bright":"#353942","surface-container":"#1c2028","tertiary-fixed":"#6ffbbe","primary":"#c0c1ff","inverse-surface":"#dfe2ee","surface-container-lowest":"#0a0e16","on-error-container":"#ffdad6","on-surface":"#dfe2ee","secondary-fixed-dim":"#4cd7f6","on-tertiary-container":"#000703","on-tertiary":"#003824","on-secondary-fixed":"#001f26","surface-dim":"#0f131c","surface-variant":"#31353e","secondary":"#4cd7f6","tertiary-container":"#00885d","on-tertiary-fixed":"#002113","tertiary":"#4edea3","on-tertiary-fixed-variant":"#005236","primary-container":"#8083ff","surface-container-low":"#181c24","surface-container-highest":"#31353e","outline":"#908fa0","primary-fixed-dim":"#c0c1ff","surface-container-high":"#262a33","on-background":"#dfe2ee","on-primary-fixed":"#07006c","on-secondary-fixed-variant":"#004e5c","background":"#0f131c","outline-variant":"#464554","on-secondary-container":"#00424e"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","margin-tablet":"1.5rem","gutter-desktop":"1.5rem","space-xs":"0.25rem","space-md":"1rem","gutter":"1rem","margin-desktop":"2.5rem","space-sm":"0.5rem","margin":"1rem","space-xl":"2rem"},"fontFamily":{"mono-code":["JetBrains Mono"],"label-md":["Inter"],"body-lg":["Inter"],"body-sm":["Inter"],"mono-timer":["JetBrains Mono"],"display-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"label-sm":["Inter"],"body-md":["Inter"],"headline-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"mono-code":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"mono-timer":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"500"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-xl":["28px",{"lineHeight":"34px","letterSpacing":"-0.025em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"22px","letterSpacing":"-0.015em","fontWeight":"600"}],"display-lg-mobile":["30px",{"lineHeight":"36px","letterSpacing":"-0.025em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-lowest flex flex-col justify-between z-50 shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 min-h-0"><div class="h-[68px] px-space-md flex items-center justify-between gap-space-sm bg-surface-container-lowest/80 backdrop-blur-md"><div class="flex items-center gap-space-sm min-w-0"><img alt="Student Command Center Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1WSPdLUA1f8VNOTCZcPQ0S6ySTO2mpmsgOc5d7ThaAFMsucdYCh65jthtvESOmKUfOyR389ixzVjW76RK-4Fl-oPRVV8iEMw2-RV9Z8affao9ifED4VX4FPtEFFwm4cyAoIcuyDwyMt2rfSjxC9J-IHBrajgr95BlkuvJtVNfekQtPB85qXIYDTFiZLGm6VXi9ZMYDDAOOnEEBisLW0P5u7sFswsYB8mYoIOU5Y147yidFUhtA4zOKx6BE"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight truncate">Command Center</span></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-mono-code text-mono-code uppercase font-medium flex-shrink-0">v2.4</span></div><nav class="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary font-semibold shadow-[0_0_16px_rgba(128,131,255,0.35)]"><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="overview" href="#"><span>Overview</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="timetable" href="#"><span>Timetable</span></a><a aria-current="page" class="group flex items-center justify-between px-space-sm py-2 rounded-lg transition-all bg-primary-container text-on-primary font-semibold shadow-[0_0_16px_rgba(128,131,255,0.35)]" data-path="assignments" href="#"><span>Assignments</span><span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-mono-code text-[11px] font-medium">4</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="exams" href="#"><span>Exams</span><span class="px-1.5 py-0.5 rounded-full bg-error-container/40 text-error font-mono-code text-[11px] font-medium">2</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="attendance" href="#"><span>Attendance</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="study" href="#"><span>Study</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="goals" href="#"><span>Goals</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="notes" href="#"><span>Notes</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all font-body-md text-body-md" data-path="analytics" href="#"><span>Analytics</span></a></nav></div><div class="p-space-sm space-y-space-xs bg-surface-container-lowest"><div class="px-space-sm py-space-xs flex items-center justify-between rounded bg-surface-container-low"><span class="font-label-sm text-label-sm text-on-surface-variant">Spring Term 2025</span><span class="font-mono-code text-mono-code text-primary font-medium">Week 8</span></div><div class="px-space-sm py-space-xs flex items-center justify-between rounded bg-tertiary-container/20 text-tertiary"><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified</span><span class="font-label-sm text-label-sm font-semibold">GPA 3.86</span></div><span class="font-label-sm text-label-sm">Top 5%</span></div><div class="pt-space-xs flex items-center justify-between"><a class="flex items-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-2 py-1.5 rounded transition-all font-label-md text-label-md" data-path="settings" href="#"><span>Settings</span></a><button aria-label="Toggle Theme" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button></div></div></aside><div class="pl-[260px]"><header class="fixed top-0 left-[260px] right-0 h-[68px] bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-space-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-tight">Good evening, Afaq</span><span class="text-body-md">👋</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Monday, Oct 27 • 3 classes remaining today</span></div><div class="flex items-center gap-space-md"><div class="relative flex items-center"><span class="material-symbols-outlined text-[18px] text-outline absolute left-3 pointer-events-none">search</span><input class="w-72 bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-9 pr-14 py-2 rounded-full focus:outline-none focus:bg-surface-container-high transition-all" placeholder="Search courses, tasks, notes..." type="text"/><div class="absolute right-2.5 flex items-center pointer-events-none"><kbd class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-mono-code text-[10px]">⌘K</kbd></div></div><button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span></button><button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all"><span class="material-symbols-outlined text-[16px] text-primary">add</span><span>Quick Action</span></button><div class="flex items-center gap-space-xs pl-space-xs cursor-pointer group"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG6JDgC3Z1uBwsTZvgJ_-k2Pd1rEtxHPt5y4qMVKtixMZfUxMu67YueE7uOqvAQeB1XBuh6OGUjve4Ssx4noklK15DMRmjxwJCKzyJjPpmbUo8MJZibPAZpwLUnwGhvqlPmWBPUnaaPEOBsDio7sxxA3Ch35fYVaExMFw4nMQsqdLODGzezXk1Zwx1E1rgI-nkiKhNodu-GgQv-rYgOB7oQOHrlDEJYyawkmVYr1EJpHCwM2yTMKrz"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary border-2 border-surface-container-lowest"></span></div><span class="material-symbols-outlined text-[18px] text-on-surface-variant group-hover:text-on-surface transition-colors">expand_more</span></div></div></header><main class="relative pt-[68px] w-full min-h-screen bg-background p-space-lg"><div class="flex flex-col w-full">
+<!-- Interactive Client State & Keybindings Controller -->
+<script>
+    window.toggleModal = function(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.toggle('hidden');
+        modal.classList.toggle('flex');
+      }
+    };
+
+    window.toggleAssignmentStatus = function(checkboxEl, rowId) {
+      const row = document.getElementById(rowId);
+      if (!row) return;
+      const titleEl = row.querySelector('.task-title');
+      const badgeEl = row.querySelector('.status-badge');
+      const progressFill = row.querySelector('.progress-fill');
+      const progressLabel = row.querySelector('.progress-label');
+
+      if (checkboxEl.checked) {
+        if (titleEl) titleEl.classList.add('line-through', 'opacity-60');
+        if (badgeEl) {
+          badgeEl.className = 'status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-tertiary-container/30 text-tertiary flex items-center gap-1';
+          badgeEl.innerHTML = '<span class="material-symbols-outlined text-[13px]">check_circle</span> Completed';
+        }
+        if (progressFill) progressFill.style.width = '100%';
+        if (progressLabel) progressLabel.innerText = '100% Done';
+      } else {
+        if (titleEl) titleEl.classList.remove('line-through', 'opacity-60');
+        if (badgeEl) {
+          badgeEl.className = 'status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-secondary/15 text-secondary flex items-center gap-1';
+          badgeEl.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Progress';
+        }
+        if (progressFill) progressFill.style.width = '85%';
+        if (progressLabel) progressLabel.innerText = '85% Done';
+      }
+    };
+
+    window.filterStatus = function(status, btn) {
+      document.querySelectorAll('.filter-tab-btn').forEach(b => {
+        b.className = 'filter-tab-btn px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-1.5';
+      });
+      btn.className = 'filter-tab-btn px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5';
+
+      const rows = document.querySelectorAll('.assignment-row');
+      const emptyState = document.getElementById('overdue-empty-state');
+      let visibleCount = 0;
+
+      rows.forEach(r => {
+        const itemStatus = r.getAttribute('data-status');
+        if (status === 'all' || itemStatus === status) {
+          r.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          r.classList.add('hidden');
+        }
+      });
+
+      if (status === 'overdue') {
+        if (emptyState) emptyState.classList.remove('hidden');
+      } else {
+        if (emptyState) emptyState.classList.add('hidden');
+      }
+    };
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.key === 'a' || e.key === 'A') && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        window.toggleModal('create-assignment-modal');
+      }
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('create-assignment-modal');
+        if (modal && !modal.classList.contains('hidden')) {
+          window.toggleModal('create-assignment-modal');
+        }
+      }
+    });
+  </script>
+<!-- Ambient Backdrop Glow Behind Header -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 left-1/4 w-96 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute -top-28 right-10 w-80 h-72 bg-secondary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Header & Academic Metric Strip -->
+<div class="flex flex-col gap-6 mb-8">
+<!-- Title + Primary Action Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Assignments &amp; Deliverables</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-error-container/30 text-error font-mono-code text-label-sm font-semibold flex items-center gap-1.5 animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+              1 Due Tonight
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Spring Term 2025 • <span class="text-on-surface font-medium">5 Active Deliverables</span> • Academic sprint focus window
+          </p>
+</div>
+<div class="flex items-center gap-3 self-start md:self-auto">
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">sync</span>
+<span>Canvas Sync</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:brightness-110 text-on-primary font-label-md text-label-md font-semibold transition-all shadow-[0_0_20px_rgba(128,131,255,0.35)] flex items-center gap-2" onclick="window.toggleModal('create-assignment-modal')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Assignment</span>
+<kbd class="px-1.5 py-0.5 rounded bg-on-primary/20 text-on-primary font-mono-code text-[10px] uppercase">A</kbd>
+</button>
+</div>
+</div>
+<!-- Telemetry Strip (Key Metrics) -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+<!-- Metric 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md flex flex-col justify-between shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Workload</span>
+<span class="material-symbols-outlined text-[18px] text-primary">assignment</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">18</span>
+<span class="font-mono-code text-[11px] text-on-surface-variant">Active Term</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md flex flex-col justify-between shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pending</span>
+<span class="material-symbols-outlined text-[18px] text-outline">pending_actions</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">5</span>
+<span class="font-mono-code text-[11px] text-error font-medium">1 Critical</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md flex flex-col justify-between shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">In Progress</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">trending_up</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-secondary">3</span>
+<span class="font-mono-code text-[11px] text-on-surface-variant">Across 3 labs</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md flex flex-col justify-between shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Completed</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-tertiary">12</span>
+<span class="font-mono-code text-[11px] text-tertiary font-medium">72% velocity</span>
+</div>
+</div>
+<!-- Metric 5 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md col-span-2 md:col-span-1 flex flex-col justify-between shadow-sm hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Overdue</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">verified</span>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-tertiary">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Flawless record</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Search, Filter, Sort, & Control Deck -->
+<div class="p-3.5 rounded-xl bg-surface-container-low/90 backdrop-blur-md mb-6 shadow-sm flex flex-col lg:flex-row gap-4 justify-between items-stretch lg:items-center">
+<!-- Left: Status Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0">
+<button class="filter-tab-btn px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5 whitespace-nowrap" onclick="window.filterStatus('all', this)">
+<span>All</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface-variant font-mono-code text-[10px]">18</span>
+</button>
+<button class="filter-tab-btn px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-1.5 whitespace-nowrap" onclick="window.filterStatus('pending', this)">
+<span>Pending</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-mono-code text-[10px]">5</span>
+</button>
+<button class="filter-tab-btn px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-1.5 whitespace-nowrap" onclick="window.filterStatus('in-progress', this)">
+<span>In Progress</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary/15 text-secondary font-mono-code text-[10px]">3</span>
+</button>
+<button class="filter-tab-btn px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-1.5 whitespace-nowrap" onclick="window.filterStatus('completed', this)">
+<span>Completed</span>
+<span class="px-1.5 py-0.2 rounded-full bg-tertiary-container/30 text-tertiary font-mono-code text-[10px]">12</span>
+</button>
+<button class="filter-tab-btn px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-1.5 whitespace-nowrap" onclick="window.filterStatus('overdue', this)">
+<span>Overdue</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-on-surface-variant font-mono-code text-[10px]">0</span>
+</button>
+</div>
+<!-- Right: Search, Filter Selectors, View Mode -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Quick Search -->
+<div class="relative flex-1 sm:flex-initial">
+<span class="material-symbols-outlined text-[16px] text-outline absolute left-2.5 top-2 pointer-events-none">search</span>
+<input class="w-full sm:w-56 bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm pl-8 pr-3 py-1.5 rounded-lg focus:outline-none focus:bg-surface-variant transition-all" placeholder="Search tasks, course, tag... (⌘F)" type="text"/>
+</div>
+<!-- Course Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md pl-3 pr-7 py-1.5 rounded-lg focus:outline-none cursor-pointer transition-all">
+<option>All Courses</option>
+<option>CS450: Operating Systems</option>
+<option>CS320: Database Systems</option>
+<option>MATH310: Linear Algebra</option>
+<option>CS401: Distributed Systems</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute right-2 top-2 pointer-events-none">expand_more</span>
+</div>
+<!-- Priority Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md pl-3 pr-7 py-1.5 rounded-lg focus:outline-none cursor-pointer transition-all">
+<option>All Priorities</option>
+<option>Critical Due</option>
+<option>High Priority</option>
+<option>Medium Priority</option>
+<option>Standard / Low</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute right-2 top-2 pointer-events-none">expand_more</span>
+</div>
+<!-- Layout Selector Toggle -->
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container-high">
+<button class="p-1 rounded bg-surface-variant text-primary shadow-sm" title="Detailed List View">
+<span class="material-symbols-outlined text-[18px]">view_agenda</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface transition-all" title="Kanban Board View">
+<span class="material-symbols-outlined text-[18px]">view_kanban</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Assignments Main Table / Detailed Rows Stack -->
+<div class="flex flex-col gap-3">
+<!-- ITEM 1: Critical Due (CS450) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/80 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="in-progress" id="row-1">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<!-- Left: Checkbox + Course Tag + Title + Specs -->
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-1')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center text-transparent peer-checked:text-on-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-secondary/15 text-secondary">CS450 • OS Kernels</span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-error-container/40 text-error flex items-center gap-1 animate-pulse">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Critical Due
+              </span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-secondary/15 text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Progress
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all">
+              Kernel Memory Allocator (Malloc) Implementation
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-error font-medium">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+                Due Today, 11:59 PM (9h left)
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">check_circle</span>
+                450 lines C99 • Valgrind zero leaks
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Prof. Vance
+              </span>
+</div>
+</div>
+</div>
+<!-- Center: Progress Meter & Subtasks -->
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-on-surface font-medium">85% Done</span>
+<span>3/4 Tasks</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-gradient-to-r from-secondary to-primary rounded-full transition-all duration-300" style="width: 85%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Spec / Files">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Edit Assignment">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ITEM 2: High Priority (CS320) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/80 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="in-progress" id="row-2">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-2')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center text-transparent peer-checked:text-on-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-primary-container/20 text-primary">CS320 • Database Systems</span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-secondary/15 text-secondary">
+                High Priority
+              </span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-secondary/15 text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Progress
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all">
+              B-Tree Indexing Benchmark &amp; Write-Ahead Log Analysis
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[15px]">event</span>
+                Due Wed, Oct 29 (in 2 days)
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline">analytics</span>
+                PostgreSQL vs Custom B-Tree Engine
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Dr. Chen
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-on-surface font-medium">40% Review</span>
+<span>2/5 Tests</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-secondary rounded-full transition-all duration-300" style="width: 40%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Spec / Files">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Edit Assignment">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ITEM 3: Medium Priority (MATH310) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/80 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="pending" id="row-3">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant"></div>
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-3')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center text-transparent peer-checked:text-on-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-tertiary-container/20 text-tertiary">MATH310 • Linear Algebra</span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-surface-container-high text-on-surface-variant">
+                Medium Priority
+              </span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Pending
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all">
+              Problem Set 7: SVD &amp; Eigenvalue Spectral Decompositions
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">event</span>
+                Due Fri, Oct 31 (in 4 days)
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">code</span>
+                LaTeX template compiled • Problems 1-8
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Dr. Aris
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-on-surface font-medium">15% Draft</span>
+<span>1/8 Solved</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-primary-container rounded-full transition-all duration-300" style="width: 15%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Spec / Files">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Edit Assignment">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ITEM 4: Medium Priority (CS401) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/80 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="pending" id="row-4">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-surface-container-highest"></div>
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-4')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-surface-container-high peer-checked:bg-primary transition-all flex items-center justify-center text-transparent peer-checked:text-on-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-primary-fixed-dim/20 text-primary">CS401 • Distributed Systems</span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-surface-container-high text-on-surface-variant">
+                Medium Priority
+              </span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span> Queue
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all">
+              Raft Consensus Protocol Fault Tolerance Simulation
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">event</span>
+                Due Nov 05 (in 9 days)
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">library_books</span>
+                Literature survey &amp; test harness
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Prof. Thorne
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-on-surface font-medium">0% Planning</span>
+<span>Not Started</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-primary rounded-full transition-all duration-300" style="width: 0%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Spec / Files">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Edit Assignment">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ITEM 5: Completed (CS401) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/60 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="completed" id="row-5">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input checked="" class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-5')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-primary text-on-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-primary-fixed-dim/20 text-primary">CS401 • Distributed Systems</span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-tertiary-container/30 text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Submitted Oct 24
+              </span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-semibold bg-tertiary-container/30 text-tertiary">
+                Grade: 98/100 (A+)
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all line-through opacity-70">
+              Distributed Vector Clocks &amp; Causality Proofs
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm opacity-80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">done_all</span>
+                On-time submission • PDF verified
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Prof. Thorne
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-tertiary font-medium">100% Graded</span>
+<span>Complete</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-tertiary rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Graded Feedback">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ITEM 6: Completed (CS320) -->
+<div class="assignment-row group p-4 rounded-xl bg-surface-container-low/60 hover:bg-surface-container transition-all duration-200 shadow-sm flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative overflow-hidden" data-status="completed" id="row-6">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-start gap-3.5 flex-1 min-w-0">
+<label class="relative flex items-center justify-center mt-1 cursor-pointer">
+<input checked="" class="peer sr-only" onchange="window.toggleAssignmentStatus(this, 'row-6')" type="checkbox"/>
+<div class="w-5 h-5 rounded bg-primary text-on-primary transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+</label>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded font-mono-code text-[11px] font-semibold bg-primary-container/20 text-primary">CS320 • Database Systems</span>
+<span class="status-badge px-2 py-0.5 rounded-full font-mono-code text-[11px] font-medium bg-tertiary-container/30 text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Submitted Oct 22
+              </span>
+<span class="px-2 py-0.5 rounded-full font-mono-code text-[11px] font-semibold bg-tertiary-container/30 text-tertiary">
+                Grade: 100/100 (A+)
+              </span>
+</div>
+<h2 class="task-title font-headline-sm text-headline-sm text-on-surface font-semibold truncate transition-all line-through opacity-70">
+              Relational Algebra Normalization (BCNF &amp; 4NF) Quiz Prep
+            </h2>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1 text-on-surface-variant font-body-sm text-body-sm opacity-80">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-tertiary">done_all</span>
+                Mastery verified • Auto-scored
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">school</span>
+                Dr. Chen
+              </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 xl:w-72 justify-between xl:justify-end">
+<div class="flex flex-col gap-1.5 w-40">
+<div class="flex items-center justify-between text-on-surface-variant font-mono-code text-[11px]">
+<span class="progress-label text-tertiary font-medium">100% Mastered</span>
+<span>Complete</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="progress-fill h-full bg-tertiary rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="View Quiz Answers">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="More Actions">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Overdue Tab Empty State (Displayed dynamically when clicking Overdue tab) -->
+<div class="hidden p-12 rounded-2xl bg-surface-container-low/90 backdrop-blur-md flex flex-col items-center justify-center text-center shadow-sm" id="overdue-empty-state">
+<div class="w-16 h-16 rounded-full bg-tertiary-container/30 text-tertiary flex items-center justify-center mb-4 shadow-[0_0_24px_rgba(78,222,163,0.25)]">
+<span class="material-symbols-outlined text-[32px]">verified</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">Zero Overdue Deliverables</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-2">
+          Outstanding work! All assignments for Spring Term 2025 are tracked on schedule or successfully submitted. Keep up the high velocity cadence.
+        </p>
+<div class="mt-6 flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-mono-code text-label-sm font-semibold">
+            100% Submission Integrity
+          </span>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-all" onclick="window.filterStatus('all', document.querySelector('.filter-tab-btn'))">
+            Return to All Tasks
+          </button>
+</div>
+</div>
+</div>
+<!-- Syllabus Context & Quick Reference Strip -->
+<div class="mt-8 p-5 rounded-2xl bg-surface-container-low/80 backdrop-blur-md shadow-sm grid grid-cols-1 md:grid-cols-3 gap-5">
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Automated Grading CI</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">CS450 Malloc Autotester runner active</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">auto_stories</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Office Hours Today</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Prof. Vance • Turing Hall 402 (4:00 PM)</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-11 h-11 rounded-xl bg-tertiary-container/20 text-tertiary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">cloud_done</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Cloud Vault Backup</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Git commits synced 12 minutes ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Production-Ready "Create New Deliverable" Modal Dialog -->
+<div class="hidden fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md items-center justify-center p-4" id="create-assignment-modal">
+<div class="w-full max-w-2xl bg-surface-container-low rounded-2xl shadow-[0_24px_64px_-12px_rgba(0,0,0,0.75)] overflow-hidden flex flex-col max-h-[921px]">
+<!-- Modal Header -->
+<div class="px-6 py-4 bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Create New Deliverable</h2>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" onclick="window.toggleModal('create-assignment-modal')">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="p-6 overflow-y-auto space-y-5">
+<!-- Title Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Assignment Title *</span>
+<span class="font-mono-code text-[11px] text-on-surface-variant">e.g., Lab 4: Memory Allocator</span>
+</label>
+<input class="w-full bg-surface-container-high text-on-surface placeholder:text-outline font-body-md text-body-md px-3.5 py-2.5 rounded-lg focus:outline-none focus:bg-surface-variant transition-all" placeholder="e.g. Cache-Aware Matrix Multiplication &amp; SIMD Benchmarking" type="text"/>
+</div>
+<!-- Course & Priority Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Course Selection -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Subject / Academic Course *</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-md text-body-md px-3.5 py-2.5 rounded-lg focus:outline-none cursor-pointer transition-all">
+<option>CS450: Operating Systems</option>
+<option>CS401: Distributed Systems</option>
+<option>CS320: Database Systems</option>
+<option>MATH310: Linear Algebra</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute right-3 top-3 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Due Date & Submission Time -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Due Date &amp; Time *</label>
+<button class="font-mono-code text-[11px] text-primary hover:underline" onclick="document.getElementById('modal-time').value='23:59'">Set 11:59 PM</button>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<input class="w-full bg-surface-container-high text-on-surface font-mono-code text-body-sm px-3 py-2 rounded-lg focus:outline-none" type="date" value="2025-10-31"/>
+<input class="w-full bg-surface-container-high text-on-surface font-mono-code text-body-sm px-3 py-2 rounded-lg focus:outline-none" id="modal-time" type="time" value="23:59"/>
+</div>
+</div>
+</div>
+<!-- Priority Selector -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Deliverable Urgency / Priority</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<label class="flex items-center justify-center p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant cursor-pointer text-center transition-all">
+<input class="sr-only peer" name="priority" type="radio" value="low"/>
+<span class="font-label-md text-label-md text-on-surface-variant peer-checked:text-on-surface peer-checked:font-bold">Standard</span>
+</label>
+<label class="flex items-center justify-center p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant cursor-pointer text-center transition-all">
+<input checked="" class="sr-only peer" name="priority" type="radio" value="medium"/>
+<span class="font-label-md text-label-md text-on-surface-variant peer-checked:text-primary peer-checked:font-bold">Medium</span>
+</label>
+<label class="flex items-center justify-center p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant cursor-pointer text-center transition-all">
+<input class="sr-only peer" name="priority" type="radio" value="high"/>
+<span class="font-label-md text-label-md text-on-surface-variant peer-checked:text-secondary peer-checked:font-bold">High Priority</span>
+</label>
+<label class="flex items-center justify-center p-2 rounded-lg bg-surface-container-high hover:bg-surface-variant cursor-pointer text-center transition-all">
+<input class="sr-only peer" name="priority" type="radio" value="critical"/>
+<span class="font-label-md text-label-md text-on-surface-variant peer-checked:text-error peer-checked:font-bold">Critical Due</span>
+</label>
+</div>
+</div>
+<!-- Description & Requirements Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">Requirements &amp; Rubric Notes</label>
+<textarea class="w-full bg-surface-container-high text-on-surface placeholder:text-outline font-body-sm text-body-sm p-3 rounded-lg focus:outline-none focus:bg-surface-variant resize-none" placeholder="Specify key acceptance criteria (e.g. Valgrind zero leaks, LaTeX report format, minimum benchmark throughput)..." rows="3"></textarea>
+</div>
+<!-- Effort Weight & Dropzone -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-3.5 rounded-xl bg-surface-container flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Weight &amp; Estimated Effort</span>
+<div class="flex items-center justify-between mt-2">
+<span class="font-mono-code text-[13px] text-primary font-semibold">15% Course Grade</span>
+<span class="font-mono-code text-[13px] text-on-surface-variant">~8h Study Effort</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high cursor-pointer transition-all flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-[20px] text-outline mb-1">upload_file</span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Attach Handout / Specs</span>
+<span class="font-mono-code text-[10px] text-outline">PDF, ZIP or Markdown</span>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-surface-container flex items-center justify-end gap-3">
+<button class="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" onclick="window.toggleModal('create-assignment-modal')">
+          Cancel
+        </button>
+<button class="px-5 py-2 rounded-lg bg-primary-container hover:brightness-110 text-on-primary font-label-md text-label-md font-semibold transition-all shadow-[0_0_16px_rgba(128,131,255,0.35)] flex items-center gap-1.5" onclick="window.toggleModal('create-assignment-modal')">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Create Deliverable</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
