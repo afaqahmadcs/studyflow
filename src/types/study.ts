@@ -8,8 +8,10 @@ export interface StudySessionRecord {
   objective: string;         // e.g. "Vector Clocks & Causality proofs"
   durationMinutes: number;   // e.g. 50
   mode: TimerMode;
-  date: string;              // "Today" or "2025-10-27"
-  timestamp: string;         // "Today, 10:15 AM"
+  date: string;              // "Today", "Yesterday", or "2026-09-18"
+  startTime: string;         // "10:15 AM"
+  endTime: string;           // "11:05 AM"
+  timestamp: string;         // "Today, 10:15 AM - 11:05 AM"
   xpEarned: number;          // 80
   tags?: string[];
   tasksVerified?: number;

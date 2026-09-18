@@ -31,10 +31,61 @@ export function StudySessionHistory({
   });
 
   const handleExportCSV = () => {
+    if (sessions.length === 0) {
+      toast({
+        title: "No Sessions to Export",
+        description: "Log at least one study session before exporting.",
+        type: "warning",
+      });
+      return;
+    }
+
+    const headers = [
+      "Session ID",
+      "Subject Code",
+      "Subject Name",
+      "Objective",
+      "Duration (Minutes)",
+      "Mode",
+      "Date",
+      "Start Time",
+      "End Time",
+      "Focus XP",
+      "Notes",
+    ];
+
+    const rows = sessions.map((s) => [
+      s.id,
+      `"${s.subjectCode}"`,
+      `"${s.subjectName}"`,
+      `"${(s.objective || "").replace(/"/g, '""')}"`,
+      s.durationMinutes,
+      s.mode,
+      `"${s.date}"`,
+      `"${s.startTime || ""}"`,
+      `"${s.endTime || ""}"`,
+      s.xpEarned,
+      `"${(s.notes || "").replace(/"/g, '""')}"`,
+    ]);
+
+    const csvString = [headers.join(","), ...rows.map((r) => r.join(","))].join("\r\n");
+    const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute(
+      "download",
+      `student_command_center_study_${new Date().toISOString().slice(0, 10)}.csv`
+    );
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
     toast({
       title: "Study History Exported",
-      description: `Downloaded ${sessions.length} chronological session records in CSV format.`,
-      type: "info",
+      description: `Downloaded ${sessions.length} chronological session records as CSV.`,
+      type: "success",
     });
   };
 
@@ -134,7 +185,12 @@ export function StudySessionHistory({
 
               <div className="flex md:flex-col items-center md:items-end justify-between md:justify-center flex-shrink-0 text-right">
                 <span className="font-mono-code text-mono-code font-bold text-on-surface text-[12px]">
-                  {session.timestamp}
+                  {session.date}
+                </span>
+                <span className="font-mono-code text-[11px] text-on-surface-variant">
+                  {session.startTime && session.endTime
+                    ? `${session.startTime} - ${session.endTime}`
+                    : session.timestamp}
                 </span>
 
                 <div className="flex items-center gap-2 mt-1">

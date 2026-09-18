@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Flame,
   Volume2,
@@ -31,9 +31,111 @@ export function StudyCockpitHeader({
   const [ambientAudio, setAmbientAudio] = useState("binaural");
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
+  // Web Audio synthesizer references
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const gainNodeRef = useRef<GainNode | null>(null);
+  const activeSourcesRef = useRef<AudioNode[]>([]);
+
+  const stopAudio = () => {
+    if (gainNodeRef.current && audioCtxRef.current) {
+      try {
+        gainNodeRef.current.gain.linearRampToValueAtTime(0.0001, audioCtxRef.current.currentTime + 0.2);
+      } catch {}
+    }
+    setTimeout(() => {
+      activeSourcesRef.current.forEach((node) => {
+        try {
+          if ("stop" in node && typeof (node as AudioScheduledSourceNode).stop === "function") {
+            (node as AudioScheduledSourceNode).stop();
+          }
+          node.disconnect();
+        } catch {}
+      });
+      activeSourcesRef.current = [];
+    }, 250);
+  };
+
+  const startAudio = (type: string) => {
+    try {
+      stopAudio();
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return;
+
+      if (!audioCtxRef.current || audioCtxRef.current.state === "closed") {
+        audioCtxRef.current = new AudioCtx();
+      }
+      const ctx = audioCtxRef.current;
+      if (ctx.state === "suspended") {
+        ctx.resume();
+      }
+
+      const masterGain = ctx.createGain();
+      masterGain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(0.04, ctx.currentTime + 0.4);
+      masterGain.connect(ctx.destination);
+      gainNodeRef.current = masterGain;
+
+      if (type === "binaural") {
+        // Dual carrier sine waves (196 Hz and 236 Hz creating 40 Hz Gamma pulse)
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        osc1.type = "sine";
+        osc2.type = "sine";
+        osc1.frequency.setValueAtTime(196, ctx.currentTime);
+        osc2.frequency.setValueAtTime(236, ctx.currentTime);
+
+        osc1.connect(masterGain);
+        osc2.connect(masterGain);
+        activeSourcesRef.current.push(osc1, osc2);
+        osc1.start();
+        osc2.start();
+      } else {
+        // Filtered noise buffer for Rain, Library, Lo-Fi ambient sound
+        const bufferSize = ctx.sampleRate * 2;
+        const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99 * b0 + white * 0.05;
+          b1 = 0.95 * b1 + white * 0.1;
+          b2 = 0.85 * b2 + white * 0.2;
+          output[i] = (b0 + b1 + b2) * 0.35;
+        }
+
+        const noiseNode = ctx.createBufferSource();
+        noiseNode.buffer = noiseBuffer;
+        noiseNode.loop = true;
+
+        const filter = ctx.createBiquadFilter();
+        filter.type = type === "rain" ? "lowpass" : type === "lofi" ? "bandpass" : "lowpass";
+        filter.frequency.setValueAtTime(type === "rain" ? 420 : type === "lofi" ? 380 : 260, ctx.currentTime);
+
+        noiseNode.connect(filter);
+        filter.connect(masterGain);
+        activeSourcesRef.current.push(noiseNode, filter);
+        noiseNode.start();
+      }
+    } catch (e) {
+      console.warn("Audio context not available", e);
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      stopAudio();
+    };
+  }, []);
+
   const handleToggleAudio = () => {
     const nextState = !isPlayingAudio;
     setIsPlayingAudio(nextState);
+
+    if (nextState) {
+      startAudio(ambientAudio);
+    } else {
+      stopAudio();
+    }
 
     const labels: Record<string, string> = {
       binaural: "Binaural Beats 40Hz (Flow State)",
@@ -93,11 +195,13 @@ export function StudyCockpitHeader({
           <select
             value={ambientAudio}
             onChange={(e) => {
-              setAmbientAudio(e.target.value);
+              const newPreset = e.target.value;
+              setAmbientAudio(newPreset);
               if (isPlayingAudio) {
+                startAudio(newPreset);
                 toast({
                   title: "Acoustic Shift",
-                  description: `Switched preset to ${e.target.value}.`,
+                  description: `Switched preset to ${newPreset}.`,
                   type: "info",
                 });
               }

@@ -26,6 +26,9 @@ interface StudyTimerDialProps {
     subjectCode: string;
     subjectName: string;
     objective: string;
+    startTime: string;
+    endTime: string;
+    date: string;
   }) => void;
 }
 
@@ -57,11 +60,14 @@ export function StudyTimerDial({
   const [secondsLeft, setSecondsLeft] = useState(getModeSeconds("pomodoro"));
   const [cycleIndex, setCycleIndex] = useState(3); // 3 of 4
   const [isEditingObjective, setIsEditingObjective] = useState(false);
+  const [customMinutesInput, setCustomMinutesInput] = useState("");
+  const [isCustomDurationOpen, setIsCustomDurationOpen] = useState(false);
 
   // High-precision timer references using timestamp delta to avoid drift
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(0);
   const remainingAtPauseRef = useRef<number>(getModeSeconds("pomodoro"));
+  const sessionStartWallTimeRef = useRef<Date | null>(null);
 
   // Change mode
   const handleSelectMode = (newMode: TimerMode) => {
@@ -72,10 +78,26 @@ export function StudyTimerDial({
     setInitialSeconds(secs);
     setSecondsLeft(secs);
     remainingAtPauseRef.current = secs;
+    sessionStartWallTimeRef.current = null;
+  };
+
+  // Direct duration selector (e.g. 15, 25, 30, 45, 50, 60 min)
+  const handleSelectDurationMinutes = (minutes: number) => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    const secs = Math.max(60, minutes * 60);
+    setTimerState("idle");
+    setInitialSeconds(secs);
+    setSecondsLeft(secs);
+    remainingAtPauseRef.current = secs;
+    sessionStartWallTimeRef.current = null;
+    setIsCustomDurationOpen(false);
   };
 
   // Timer Tick implementation
   const handleStart = () => {
+    if (!sessionStartWallTimeRef.current) {
+      sessionStartWallTimeRef.current = new Date();
+    }
     setTimerState("running");
     startTimeRef.current = Date.now();
     remainingAtPauseRef.current = secondsLeft;
@@ -89,7 +111,12 @@ export function StudyTimerDial({
       if (remaining <= 0) {
         if (timerRef.current) clearInterval(timerRef.current);
         setTimerState("idle");
-        // Trigger auto complete
+        
+        const now = new Date();
+        const start = sessionStartWallTimeRef.current || new Date(Date.now() - initialSeconds * 1000);
+        const startTimeStr = start.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const endTimeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
         const completedMinutes = Math.max(1, Math.round(initialSeconds / 60));
         onFinishSession({
           durationMinutes: completedMinutes,
@@ -97,7 +124,11 @@ export function StudyTimerDial({
           subjectCode: selectedSubject.code,
           subjectName: selectedSubject.name,
           objective,
+          startTime: startTimeStr,
+          endTime: endTimeStr,
+          date: "Today",
         });
+        sessionStartWallTimeRef.current = null;
       }
     }, 500);
   };
@@ -119,6 +150,7 @@ export function StudyTimerDial({
     setInitialSeconds(secs);
     setSecondsLeft(secs);
     remainingAtPauseRef.current = secs;
+    sessionStartWallTimeRef.current = null;
   };
 
   const handleBumpFiveMinutes = () => {
@@ -134,8 +166,13 @@ export function StudyTimerDial({
     if (timerRef.current) clearInterval(timerRef.current);
     setTimerState("idle");
 
-    const elapsedSeconds = initialSeconds - secondsLeft;
+    const elapsedSeconds = Math.max(0, initialSeconds - secondsLeft);
     const completedMinutes = Math.max(1, Math.round(elapsedSeconds / 60));
+
+    const now = new Date();
+    const start = sessionStartWallTimeRef.current || new Date(Date.now() - elapsedSeconds * 1000);
+    const startTimeStr = start.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    const endTimeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
     onFinishSession({
       durationMinutes: completedMinutes,
@@ -143,7 +180,12 @@ export function StudyTimerDial({
       subjectCode: selectedSubject.code,
       subjectName: selectedSubject.name,
       objective,
+      startTime: startTimeStr,
+      endTime: endTimeStr,
+      date: "Today",
     });
+
+    sessionStartWallTimeRef.current = null;
 
     // Reset timer
     const secs = getModeSeconds(mode);
@@ -177,7 +219,7 @@ export function StudyTimerDial({
       <div className="absolute -bottom-24 right-10 w-72 h-72 bg-secondary-container/10 rounded-full blur-[80px] pointer-events-none" />
 
       {/* 1. Mode Selector Tabs */}
-      <div className="flex items-center justify-between gap-2 bg-surface-container-lowest p-1.5 rounded-lg mb-space-lg relative z-10 overflow-x-auto border border-white/[0.04]">
+      <div className="flex items-center justify-between gap-2 bg-surface-container-lowest p-1.5 rounded-lg mb-space-sm relative z-10 overflow-x-auto border border-white/[0.04]">
         <button
           onClick={() => handleSelectMode("pomodoro")}
           className={cn(
@@ -222,6 +264,72 @@ export function StudyTimerDial({
         >
           Deep Flow 50m
         </button>
+      </div>
+
+      {/* 1.5 Quick Duration Selector */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-surface-container/60 p-2 rounded-lg mb-space-md relative z-10 border border-white/[0.03]">
+        <span className="font-label-sm text-on-surface-variant text-[11px] uppercase tracking-wider font-semibold pl-1">
+          Duration:
+        </span>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          {[15, 25, 30, 45, 50, 60, 90].map((mins) => {
+            const isSelected = Math.round(initialSeconds / 60) === mins;
+            return (
+              <button
+                key={mins}
+                onClick={() => handleSelectDurationMinutes(mins)}
+                className={cn(
+                  "px-2.5 py-1 rounded text-[11px] font-mono-code transition-all",
+                  isSelected
+                    ? "bg-primary-container text-on-primary font-bold shadow-sm"
+                    : "bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface"
+                )}
+              >
+                {mins}m
+              </button>
+            );
+          })}
+          {isCustomDurationOpen ? (
+            <div className="flex items-center gap-1">
+              <input
+                type="number"
+                min="1"
+                max="180"
+                placeholder="mins"
+                value={customMinutesInput}
+                onChange={(e) => setCustomMinutesInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && customMinutesInput) {
+                    const parsed = parseInt(customMinutesInput, 10);
+                    if (!isNaN(parsed) && parsed > 0) {
+                      handleSelectDurationMinutes(parsed);
+                    }
+                  }
+                }}
+                className="w-14 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-mono-code text-[11px] border border-primary focus:outline-none"
+                autoFocus
+              />
+              <button
+                onClick={() => {
+                  const parsed = parseInt(customMinutesInput, 10);
+                  if (!isNaN(parsed) && parsed > 0) {
+                    handleSelectDurationMinutes(parsed);
+                  }
+                }}
+                className="px-2 py-0.5 rounded bg-primary text-on-primary text-[10px] font-bold"
+              >
+                Set
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setIsCustomDurationOpen(true)}
+              className="px-2 py-1 rounded text-[11px] font-mono-code bg-surface-container-high hover:bg-surface-bright text-secondary hover:text-on-surface transition-colors"
+            >
+              +Custom
+            </button>
+          )}
+        </div>
       </div>
 
       {/* 2. Subject & Active Objective Context Selector */}

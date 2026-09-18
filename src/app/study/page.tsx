@@ -124,18 +124,27 @@ export default function StudyPage() {
     subjectCode,
     subjectName,
     objective: sessionObjective,
+    startTime,
+    endTime,
+    date,
   }: {
     durationMinutes: number;
     mode: TimerMode;
     subjectCode: string;
     subjectName: string;
     objective: string;
+    startTime?: string;
+    endTime?: string;
+    date?: string;
   }) => {
     const nowTime = new Date().toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
     });
 
+    const sTime = startTime || nowTime;
+    const eTime = endTime || nowTime;
+    const sessionDate = date || "Today";
     const xpEarned = Math.max(25, Math.round(durationMinutes * 1.5));
 
     // Create session record
@@ -146,8 +155,10 @@ export default function StudyPage() {
       objective: sessionObjective || "Focused Study Block",
       durationMinutes,
       mode,
-      date: "Today",
-      timestamp: `Today, ${nowTime}`,
+      date: sessionDate,
+      startTime: sTime,
+      endTime: eTime,
+      timestamp: `${sessionDate}, ${sTime} - ${eTime}`,
       xpEarned,
       tasksVerified: Math.max(1, Math.floor(durationMinutes / 20)),
       tags: [`#${subjectCode}`, `#${mode.replace("_", "")}`],
