@@ -53,8 +53,8 @@ const NAV_ITEMS: NavItemConfig[] = [
   },
   { key: "attendance", label: "Attendance", href: "/attendance", icon: CheckSquare },
   { key: "study", label: "Study", href: "/study", icon: Timer },
-  { key: "goals", label: "Goals", href: "/#goals", icon: Flag },
-  { key: "notes", label: "Notes", href: "/#notes", icon: FileEdit },
+  { key: "goals", label: "Goals", href: "/goals", icon: Flag },
+  { key: "notes", label: "Notes", href: "/notes", icon: FileEdit },
   { key: "analytics", label: "Analytics", href: "/#analytics", icon: TrendingUp },
 ];
 

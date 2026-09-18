@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight } from "lucide-react";
+import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight, Flag, FileEdit } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 import { useNav, NavItemKey } from "@/context/nav-context";
 import { useToast } from "@/components/ui/toast";
@@ -110,6 +110,30 @@ export function SearchPaletteModal({
         action: () => {
           setActiveNav("study");
           router.push("/study");
+          onClose();
+        },
+      },
+      {
+        id: "nav-goals",
+        category: "Navigation",
+        title: "Academic Goals & Milestones",
+        subtitle: "Daily micro-targets, weekly sprints & GPA distinction",
+        icon: Flag,
+        action: () => {
+          setActiveNav("goals");
+          router.push("/goals");
+          onClose();
+        },
+      },
+      {
+        id: "nav-notes",
+        category: "Navigation",
+        title: "Academic Notes & Knowledge Base",
+        subtitle: "Markdown-ready second brain, checklists & formulas",
+        icon: FileEdit,
+        action: () => {
+          setActiveNav("notes");
+          router.push("/notes");
           onClose();
         },
       },
