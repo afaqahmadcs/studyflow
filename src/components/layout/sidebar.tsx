@@ -2,6 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   LayoutGrid,
   Calendar,
@@ -24,17 +26,19 @@ import { cn } from "@/lib/utils";
 interface NavItemConfig {
   key: NavItemKey;
   label: string;
+  href: string;
   icon: React.ComponentType<{ className?: string }>;
   badgeCount?: number;
   badgeVariant?: "secondary" | "error";
 }
 
 const NAV_ITEMS: NavItemConfig[] = [
-  { key: "overview", label: "Overview", icon: LayoutGrid },
-  { key: "timetable", label: "Timetable", icon: Calendar },
+  { key: "overview", label: "Overview", href: "/", icon: LayoutGrid },
+  { key: "timetable", label: "Timetable", href: "/timetable", icon: Calendar },
   {
     key: "assignments",
     label: "Assignments",
+    href: "/assignments",
     icon: ClipboardList,
     badgeCount: 4,
     badgeVariant: "secondary",
@@ -42,18 +46,20 @@ const NAV_ITEMS: NavItemConfig[] = [
   {
     key: "exams",
     label: "Exams",
+    href: "/#exams",
     icon: CalendarCheck,
     badgeCount: 2,
     badgeVariant: "error",
   },
-  { key: "attendance", label: "Attendance", icon: CheckSquare },
-  { key: "study", label: "Study", icon: Timer },
-  { key: "goals", label: "Goals", icon: Flag },
-  { key: "notes", label: "Notes", icon: FileEdit },
-  { key: "analytics", label: "Analytics", icon: TrendingUp },
+  { key: "attendance", label: "Attendance", href: "/#attendance", icon: CheckSquare },
+  { key: "study", label: "Study", href: "/#study", icon: Timer },
+  { key: "goals", label: "Goals", href: "/#goals", icon: Flag },
+  { key: "notes", label: "Notes", href: "/#notes", icon: FileEdit },
+  { key: "analytics", label: "Analytics", href: "/#analytics", icon: TrendingUp },
 ];
 
 export function Sidebar({ className }: { className?: string }) {
+  const pathname = usePathname();
   const { activeNav, setActiveNav } = useNav();
   const { theme, toggleTheme } = useTheme();
 
@@ -67,7 +73,7 @@ export function Sidebar({ className }: { className?: string }) {
       <div className="flex flex-col flex-1 min-h-0">
         {/* Brand & Version Header */}
         <div className="h-[68px] px-space-md flex items-center justify-between gap-space-sm bg-surface-container-lowest/80 backdrop-blur-md border-b border-white/[0.04]">
-          <div className="flex items-center gap-space-sm min-w-0">
+          <Link href="/" className="flex items-center gap-space-sm min-w-0">
             <div className="relative w-8 h-8 flex-shrink-0">
               <Image
                 src="/logo.svg"
@@ -81,7 +87,7 @@ export function Sidebar({ className }: { className?: string }) {
             <span className="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight truncate">
               Command Center
             </span>
-          </div>
+          </Link>
           <span className="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-mono-code text-[10px] uppercase font-medium flex-shrink-0 border border-white/[0.08]">
             v2.4
           </span>
@@ -91,15 +97,24 @@ export function Sidebar({ className }: { className?: string }) {
         <nav className="flex-1 overflow-y-auto px-space-sm py-space-sm space-y-1">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon;
-            const isActive = activeNav === item.key;
+            const isRouteActive =
+              (item.href === "/" && pathname === "/") ||
+              (item.href !== "/" && pathname === item.href) ||
+              (item.href === "/#exams" && activeNav === "exams" && pathname === "/") ||
+              (item.href === "/#attendance" && activeNav === "attendance" && pathname === "/") ||
+              (item.href === "/#study" && activeNav === "study" && pathname === "/") ||
+              (item.href === "/#goals" && activeNav === "goals" && pathname === "/") ||
+              (item.href === "/#notes" && activeNav === "notes" && pathname === "/") ||
+              (item.href === "/#analytics" && activeNav === "analytics" && pathname === "/");
 
             return (
-              <button
+              <Link
                 key={item.key}
+                href={item.href}
                 onClick={() => setActiveNav(item.key)}
                 className={cn(
                   "w-full group flex items-center justify-between px-space-sm py-2 rounded-lg transition-all duration-150 font-body-md text-body-md text-left",
-                  isActive
+                  isRouteActive
                     ? "bg-primary-container text-on-primary font-semibold shadow-[0_0_16px_rgba(128,131,255,0.35)]"
                     : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
                 )}
@@ -108,7 +123,9 @@ export function Sidebar({ className }: { className?: string }) {
                   <Icon
                     className={cn(
                       "w-[20px] h-[20px] flex-shrink-0 transition-colors",
-                      isActive ? "text-on-primary" : "text-on-surface-variant group-hover:text-on-surface"
+                      isRouteActive
+                        ? "text-on-primary"
+                        : "text-on-surface-variant group-hover:text-on-surface"
                     )}
                   />
                   <span className="truncate">{item.label}</span>
@@ -118,7 +135,7 @@ export function Sidebar({ className }: { className?: string }) {
                   <span
                     className={cn(
                       "px-1.5 py-0.5 rounded-full font-mono-code text-[11px] font-medium flex-shrink-0",
-                      isActive
+                      isRouteActive
                         ? "bg-on-primary/20 text-on-primary"
                         : item.badgeVariant === "error"
                         ? "bg-error-container/40 text-error"
@@ -128,7 +145,7 @@ export function Sidebar({ className }: { className?: string }) {
                     {item.badgeCount}
                   </span>
                 )}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -156,18 +173,19 @@ export function Sidebar({ className }: { className?: string }) {
         </div>
 
         <div className="pt-space-xs flex items-center justify-between">
-          <button
+          <Link
+            href="/#settings"
             onClick={() => setActiveNav("settings")}
             className={cn(
               "flex items-center gap-space-xs px-2 py-1.5 rounded transition-all font-label-md text-label-md",
-              activeNav === "settings"
+              activeNav === "settings" && pathname === "/"
                 ? "bg-primary-container text-on-primary font-semibold"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container"
             )}
           >
             <Settings className="w-[18px] h-[18px]" />
             <span>Settings</span>
-          </button>
+          </Link>
 
           <button
             onClick={toggleTheme}

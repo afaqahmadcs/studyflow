@@ -6,6 +6,8 @@ import { Modal } from "@/components/ui/modal";
 import { useNav, NavItemKey } from "@/context/nav-context";
 import { useToast } from "@/components/ui/toast";
 
+import { useRouter } from "next/navigation";
+
 interface SearchPaletteModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -29,6 +31,7 @@ export function SearchPaletteModal({
   const [query, setQuery] = useState("");
   const { setActiveNav } = useNav();
   const { toast } = useToast();
+  const router = useRouter();
 
   useEffect(() => {
     if (!isOpen) {
@@ -46,6 +49,7 @@ export function SearchPaletteModal({
         icon: Calendar,
         action: () => {
           setActiveNav("overview");
+          router.push("/");
           onClose();
         },
       },
@@ -57,6 +61,7 @@ export function SearchPaletteModal({
         icon: Calendar,
         action: () => {
           setActiveNav("timetable");
+          router.push("/timetable");
           onClose();
         },
       },
@@ -64,10 +69,11 @@ export function SearchPaletteModal({
         id: "nav-assignments",
         category: "Navigation",
         title: "Assignments Queue",
-        subtitle: "5 active deliverables and submissions",
+        subtitle: "Active deliverables and submissions",
         icon: CheckSquare,
         action: () => {
           setActiveNav("assignments");
+          router.push("/assignments");
           onClose();
         },
       },
