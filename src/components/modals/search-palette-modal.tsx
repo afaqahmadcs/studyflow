@@ -102,6 +102,18 @@ export function SearchPaletteModal({
         },
       },
       {
+        id: "nav-study",
+        category: "Navigation",
+        title: "Study Cockpit & Pomodoro",
+        subtitle: "Deep focus timer, streaks & subject telemetry",
+        icon: BookOpen,
+        action: () => {
+          setActiveNav("study");
+          router.push("/study");
+          onClose();
+        },
+      },
+      {
         id: "action-new-assignment",
         category: "Actions",
         title: "Create New Assignment",
