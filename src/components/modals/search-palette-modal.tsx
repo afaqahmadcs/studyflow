@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from "react";
-import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight, Flag, FileEdit } from "lucide-react";
+import { Search, BookOpen, CheckSquare, Calendar, FileText, ArrowRight, Flag, FileEdit, TrendingUp } from "lucide-react";
 import { Modal } from "@/components/ui/modal";
 import { useNav, NavItemKey } from "@/context/nav-context";
 import { useToast } from "@/components/ui/toast";
@@ -134,6 +134,18 @@ export function SearchPaletteModal({
         action: () => {
           setActiveNav("notes");
           router.push("/notes");
+          onClose();
+        },
+      },
+      {
+        id: "nav-analytics",
+        category: "Navigation",
+        title: "Academic Analytics & Telemetry",
+        subtitle: "Longitudinal performance, GPA forecasts & cognitive flow",
+        icon: TrendingUp,
+        action: () => {
+          setActiveNav("analytics");
+          router.push("/analytics");
           onClose();
         },
       },

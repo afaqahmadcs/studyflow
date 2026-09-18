@@ -21,7 +21,25 @@ import { NotificationsPopover } from "@/components/modals/notifications-popover"
 import { QuickActionModal, QuickActionType } from "@/components/modals/quick-action-modal";
 
 export default function AssignmentsPage() {
-  const [assignments, setAssignments] = useState<AssignmentItem[]>(INITIAL_ASSIGNMENTS);
+  const [assignments, setAssignments] = useState<AssignmentItem[]>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("command_center_assignments");
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch {
+          // fallback
+        }
+      }
+    }
+    return INITIAL_ASSIGNMENTS;
+  });
+
+  // Sync with localStorage
+  useEffect(() => {
+    localStorage.setItem("command_center_assignments", JSON.stringify(assignments));
+  }, [assignments]);
+
   const [currentTab, setCurrentTab] = useState<StatusTabKey>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("ALL");

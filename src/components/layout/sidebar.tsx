@@ -55,7 +55,7 @@ const NAV_ITEMS: NavItemConfig[] = [
   { key: "study", label: "Study", href: "/study", icon: Timer },
   { key: "goals", label: "Goals", href: "/goals", icon: Flag },
   { key: "notes", label: "Notes", href: "/notes", icon: FileEdit },
-  { key: "analytics", label: "Analytics", href: "/#analytics", icon: TrendingUp },
+  { key: "analytics", label: "Analytics", href: "/analytics", icon: TrendingUp },
 ];
 
 export function Sidebar({ className }: { className?: string }) {
